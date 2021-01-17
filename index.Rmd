@@ -79,6 +79,80 @@ registros_presencia_amphibia <-
 especies_amphibia <-
   nrow(df_registros_presencia_amphibia_agrupados_por_especie)
 
+# REPTILES
+# Registros de presencia de reptiles
+df_registros_presencia_reptilia <- 
+  df_registros_presencia %>%
+  filter(class == "Reptilia")
+
+# Registros de presencia de reptiles agrupados por año
+df_registros_presencia_reptilia_agrupados_por_anyo <-
+  df_registros_presencia_reptilia %>%
+  dplyr::count(year)
+
+# Registros de presencia de reptiles agrupados por especie
+df_registros_presencia_reptilia_agrupados_por_especie <-
+  df_registros_presencia_reptilia %>%
+  dplyr::count(species)
+
+# Cantidad de registros de presencia de reptiles
+registros_presencia_reptilia <- 
+  nrow(df_registros_presencia_reptilia)
+
+# Cantidad de especies de reptiles
+especies_reptilia <-
+  nrow(df_registros_presencia_reptilia_agrupados_por_especie)
+
+
+# MAMÍFEROS
+# Registros de presencia de mamíferos
+df_registros_presencia_mammalia <- 
+  df_registros_presencia %>%
+  filter(class == "Mammalia")
+
+# Registros de presencia de mamíferos agrupados por año
+df_registros_presencia_mammalia_agrupados_por_anyo <-
+  df_registros_presencia_mammalia %>%
+  dplyr::count(year)
+
+# Registros de presencia de mamíferos agrupados por especie
+df_registros_presencia_mammalia_agrupados_por_especie <-
+  df_registros_presencia_mammalia %>%
+  dplyr::count(species)
+
+# Cantidad de registros de presencia de mamíferos
+registros_presencia_mammalia <- 
+  nrow(df_registros_presencia_mammalia)
+
+# Cantidad de especies de mamíferos
+especies_mammalia <-
+  nrow(df_registros_presencia_mammalia_agrupados_por_especie)
+
+
+# PLANTAS
+# Registros de presencia de plantas
+df_registros_presencia_plantae <- 
+  df_registros_presencia %>%
+  filter(kingdom == "Plantae")
+
+# Registros de presencia de plantas agrupados por año
+df_registros_presencia_plantae_agrupados_por_anyo <-
+  df_registros_presencia_plantae %>%
+  dplyr::count(year)
+
+# Registros de presencia de plantas agrupados por especie
+df_registros_presencia_plantae_agrupados_por_especie <-
+  df_registros_presencia_plantae %>%
+  dplyr::count(species)
+
+# Cantidad de registros de presencia de plantas
+registros_presencia_plantae <- 
+  nrow(df_registros_presencia_plantae)
+
+# Cantidad de especies de plantas
+especies_plantae <-
+  nrow(df_registros_presencia_plantae_agrupados_por_especie)
+
 ```
 
 Aves
@@ -128,6 +202,87 @@ plot_ly(data = df_registros_presencia_amphibia_agrupados_por_anyo,
         text = ~n, textposition = 'auto') %>%
   layout(
      title = paste("Registros de presencia de especies de anfibios detectadas desde el año 2000 (de un total de", especies_amphibia, "especies para ese período)"),
+     xaxis = list(title = "Año"),
+     yaxis = list(title = "Registros de presencia")
+  ) %>%
+  config(locale = 'es')
+
+```
+
+Reptiles
+=======================================================================
+Row {data-height=10}
+-----------------------------------------------------------------------
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+
+Row
+-----------------------------------------------------------------------
+
+### 
+
+```{r}
+
+plot_ly(data = df_registros_presencia_reptilia_agrupados_por_anyo,
+        x = ~year,
+        y = ~n,
+        type = "bar",
+        text = ~n, textposition = 'auto') %>%
+  layout(
+     title = paste("Registros de presencia de especies de reptiles detectadas desde el año 2000 (de un total de", especies_reptilia, "especies para ese período)"),
+     xaxis = list(title = "Año"),
+     yaxis = list(title = "Registros de presencia")
+  ) %>%
+  config(locale = 'es')
+
+```
+
+Mamíferos
+=======================================================================
+Row {data-height=10}
+-----------------------------------------------------------------------
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+
+Row
+-----------------------------------------------------------------------
+
+### 
+
+```{r}
+
+plot_ly(data = df_registros_presencia_mammalia_agrupados_por_anyo,
+        x = ~year,
+        y = ~n,
+        type = "bar",
+        text = ~n, textposition = 'auto') %>%
+  layout(
+     title = paste("Registros de presencia de especies de mamíferos detectadas desde el año 2000 (de un total de", especies_mammalia, "especies para ese período)"),
+     xaxis = list(title = "Año"),
+     yaxis = list(title = "Registros de presencia")
+  ) %>%
+  config(locale = 'es')
+
+```
+
+Plantas
+=======================================================================
+Row {data-height=10}
+-----------------------------------------------------------------------
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+
+Row
+-----------------------------------------------------------------------
+
+### 
+
+```{r}
+
+plot_ly(data = df_registros_presencia_plantae_agrupados_por_anyo,
+        x = ~year,
+        y = ~n,
+        type = "bar",
+        text = ~n, textposition = 'auto') %>%
+  layout(
+     title = paste("Registros de presencia de especies de plantas detectadas desde el año 2000 (de un total de", especies_plantae, "especies para ese período)"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
   ) %>%
