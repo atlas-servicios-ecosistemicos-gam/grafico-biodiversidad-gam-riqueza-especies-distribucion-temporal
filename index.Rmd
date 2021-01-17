@@ -16,7 +16,7 @@ library(plotly)
 #------------------- Constantes -------------------
 
 # Año límite superior del periodo de datos a considerar
-ANYO_LIMITE_SUPERIOR = "2000"
+ANYO_LIMITE_INFERIOR = "2000"
 
 #--------------- URL de geoservicios --------------
 
@@ -28,7 +28,7 @@ url_csv_registros_presencia <-
 # Registros de presencia filtrados por rango taxonómico (>= SPECIES) y año
 df_registros_presencia <- 
   readr::read_csv(url_csv_registros_presencia) %>%
-  filter((taxonRank == "SPECIES" | taxonRank == "SUBSPECIES" | taxonRank == "VARIETY" | taxonRank == "FORM") & year >= ANYO_LIMITE_SUPERIOR)
+  filter((taxonRank == "SPECIES" | taxonRank == "SUBSPECIES" | taxonRank == "VARIETY" | taxonRank == "FORM") & year >= ANYO_LIMITE_INFERIOR)
 
 # AVES
 # Registros de presencia de aves
@@ -159,7 +159,7 @@ Aves
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
 
 Row
 -----------------------------------------------------------------------
@@ -174,7 +174,7 @@ plot_ly(data = df_registros_presencia_aves_agrupados_por_anyo,
         type = "bar",
         text = ~n, textposition = 'auto') %>%
   layout(
-     title = paste("Registros de presencia de especies de aves detectadas desde el año 2000 (de un total de", especies_aves, "especies para ese período)"),
+     title = paste0("Distribución de registros de presencia de especies de aves por año (total de registros: ", registros_presencia_aves, ", total de especies: ", especies_aves, ")"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
   ) %>%
@@ -186,7 +186,7 @@ Anfibios
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
 
 Row
 -----------------------------------------------------------------------
@@ -201,7 +201,7 @@ plot_ly(data = df_registros_presencia_amphibia_agrupados_por_anyo,
         type = "bar",
         text = ~n, textposition = 'auto') %>%
   layout(
-     title = paste("Registros de presencia de especies de anfibios detectadas desde el año 2000 (de un total de", especies_amphibia, "especies para ese período)"),
+     title = paste0("Distribución de registros de presencia de especies de anfibios por año (total de registros: ", registros_presencia_amphibia, ", total de especies: ", especies_amphibia, ")"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
   ) %>%
@@ -213,7 +213,7 @@ Reptiles
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
 
 Row
 -----------------------------------------------------------------------
@@ -228,7 +228,7 @@ plot_ly(data = df_registros_presencia_reptilia_agrupados_por_anyo,
         type = "bar",
         text = ~n, textposition = 'auto') %>%
   layout(
-     title = paste("Registros de presencia de especies de reptiles detectadas desde el año 2000 (de un total de", especies_reptilia, "especies para ese período)"),
+     title = paste0("Distribución de registros de presencia de especies de reptiles por año (total de registros: ", registros_presencia_reptilia, ", total de especies: ", especies_reptilia, ")"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
   ) %>%
@@ -240,7 +240,7 @@ Mamíferos
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
 
 Row
 -----------------------------------------------------------------------
@@ -255,7 +255,7 @@ plot_ly(data = df_registros_presencia_mammalia_agrupados_por_anyo,
         type = "bar",
         text = ~n, textposition = 'auto') %>%
   layout(
-     title = paste("Registros de presencia de especies de mamíferos detectadas desde el año 2000 (de un total de", especies_mammalia, "especies para ese período)"),
+     title = paste0("Distribución de registros de presencia de especies de mamíferos por año (total de registros: ", registros_presencia_mammalia, ", total de especies: ", especies_mammalia, ")"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
   ) %>%
@@ -267,7 +267,7 @@ Plantas
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
 
 Row
 -----------------------------------------------------------------------
@@ -282,7 +282,7 @@ plot_ly(data = df_registros_presencia_plantae_agrupados_por_anyo,
         type = "bar",
         text = ~n, textposition = 'auto') %>%
   layout(
-     title = paste("Registros de presencia de especies de plantas detectadas desde el año 2000 (de un total de", especies_plantae, "especies para ese período)"),
+     title = paste0("Distribución de registros de presencia de especies de plantas por año (total de registros: ", registros_presencia_plantae, ", total de especies: ", especies_plantae, ")"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
   ) %>%
