@@ -5,7 +5,7 @@ output:
     orientation: rows
     vertical_layout: fill
 ---
-Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)
+
 ```{r setup, include=FALSE}
 #-------------------- Paquetes --------------------
 
@@ -83,6 +83,9 @@ especies_amphibia <-
 
 Aves
 =======================================================================
+Row {data-height=10}
+-----------------------------------------------------------------------
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
 
 Row
 -----------------------------------------------------------------------
@@ -100,12 +103,16 @@ plot_ly(data = df_registros_presencia_aves_agrupados_por_anyo,
      title = paste("Registros de presencia de especies de aves detectadas desde el año 2000 (de un total de", especies_aves, "especies para ese período)"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
-  )
+  ) %>%
+  config(locale = 'es')
 
 ```
 
 Anfibios
 =======================================================================
+Row {data-height=10}
+-----------------------------------------------------------------------
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522)**.
 
 Row
 -----------------------------------------------------------------------
@@ -123,6 +130,7 @@ plot_ly(data = df_registros_presencia_amphibia_agrupados_por_anyo,
      title = paste("Registros de presencia de especies de anfibios detectadas desde el año 2000 (de un total de", especies_amphibia, "especies para ese período)"),
      xaxis = list(title = "Año"),
      yaxis = list(title = "Registros de presencia")
-  )
+  ) %>%
+  config(locale = 'es')
 
 ```
