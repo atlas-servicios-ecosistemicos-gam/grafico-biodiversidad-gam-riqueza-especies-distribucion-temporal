@@ -15,8 +15,11 @@ library(plotly)
 
 #------------------- Constantes -------------------
 
-# Año límite superior del periodo de datos a considerar
+# Año límite inferior del periodo de datos a considerar
 ANYO_LIMITE_INFERIOR = "2000"
+
+# Año límite superior del periodo de datos a considerar
+ANYO_LIMITE_SUPERIOR = "2019"
 
 #--------------- URL de geoservicios --------------
 
@@ -28,7 +31,7 @@ url_csv_registros_presencia <-
 # Registros de presencia filtrados por rango taxonómico (>= SPECIES) y año
 df_registros_presencia <- 
   readr::read_csv(url_csv_registros_presencia) %>%
-  filter((taxonRank == "SPECIES" | taxonRank == "SUBSPECIES" | taxonRank == "VARIETY" | taxonRank == "FORM") & year >= ANYO_LIMITE_INFERIOR)
+  filter((taxonRank == "SPECIES" | taxonRank == "SUBSPECIES" | taxonRank == "VARIETY" | taxonRank == "FORM") & year >= ANYO_LIMITE_INFERIOR & year <= ANYO_LIMITE_SUPERIOR)
 
 # AVES
 # Registros de presencia de aves
@@ -159,7 +162,7 @@ Aves
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2019.**
 
 Row
 -----------------------------------------------------------------------
@@ -186,7 +189,7 @@ Anfibios
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2019.**
 
 Row
 -----------------------------------------------------------------------
@@ -213,7 +216,7 @@ Reptiles
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2019.**
 
 Row
 -----------------------------------------------------------------------
@@ -240,7 +243,7 @@ Mamíferos
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2019.**
 
 Row
 -----------------------------------------------------------------------
@@ -267,7 +270,7 @@ Plantas
 =======================================================================
 Row {data-height=10}
 -----------------------------------------------------------------------
-### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2020.**
+### **Servicio ecosistémico de soporte: Hábitat para la biodiversidad (riqueza de especies). Fuente de los datos: [Infraestructura Global de Información en Biodiversidad (GBIF)](https://www.gbif.org/occurrence/download/0002762-200127171203522). Se incluyen los registros de presencia de especies identificadas entre 2000 y 2019.**
 
 Row
 -----------------------------------------------------------------------
